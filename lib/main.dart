@@ -10,6 +10,7 @@ import 'package:travenar/screens/splashScreens/second_splash_screen.dart';
 import 'package:travenar/screens/splashScreens/splash_screen.dart';
 import 'package:travenar/screens/splashScreens/third_splash_screen.dart';
 import 'package:travenar/widgets/details_page/details_page.dart';
+import 'package:travenar/widgets/view_page/view_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: ViewPage(),
       routes: {
         '/SplashScreen': (context) => SplashScreen(),
         // "/FirstSplashScreen": (context) => FirstSplashScreen(),
@@ -42,6 +43,7 @@ class _MyAppState extends State<MyApp> {
         "/HomeScreen":(context)=>HomeScreen(),
         "/UnifiedOnboardingScreen":(context)=>UnifiedOnboardingScreen(),
         "/DetailsPage":(context)=>DetailsPage(),
+        "/ViewPage":(context)=>ViewPage(),
       },
     );
   }
