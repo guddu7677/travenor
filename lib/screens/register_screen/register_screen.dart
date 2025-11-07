@@ -25,10 +25,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
+        leading:CircleAvatar(
+                backgroundColor: Colors.white.withOpacity(0.3),
+                child: IconButton(
+                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -55,19 +58,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
               controller: nameController,
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
-                labelText: 'Email',
+                hintText: 'Email',
+                fillColor: Colors.grey.shade200,
+                filled: true,
                 prefixIcon: Icon(Icons.email_outlined),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Color(0xFF0D6EFD)),
-                ),
+                
               ),
             ),
             SizedBox(height: 20),
@@ -75,19 +74,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'Name',
+              fillColor: Colors.grey.shade200,
+              filled: true,
+                hintText: 'Name',
                 prefixIcon: Icon(Icons.email_outlined),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Color(0xFF0D6EFD)),
-                ),
+               
               ),
             ),
 
@@ -96,19 +91,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
               controller: passwordController,
               obscureText: _obscurePassword,
               decoration: InputDecoration(
-                labelText: 'Password',
+             fillColor: Colors.grey.shade200,
+             filled: true,
+                hintText: 'Password',
                 prefixIcon: Icon(Icons.lock_outline),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Color(0xFF0D6EFD)),
-                ),
+              
                 suffixIcon: IconButton(
                   icon: Icon(
                     _obscurePassword ? Icons.visibility_off : Icons.visibility,
@@ -201,9 +193,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFFFD521), // yellow
-                        Color(0xFFF50000), // red
-                        Color(0xFFB900B4), // purple
+                        Color(0xFFFFD521), 
+                        Color(0xFFF50000), 
+                        Color(0xFFB900B4), 
                       ],
                     ),
                   ),

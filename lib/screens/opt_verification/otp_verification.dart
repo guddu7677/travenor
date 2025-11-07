@@ -16,10 +16,13 @@ class _OtpVerificationState extends State<OtpVerification> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
+        leading:CircleAvatar(
+                backgroundColor: Colors.white.withOpacity(0.3),
+                child: IconButton(
+                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),

@@ -11,24 +11,35 @@ class _HomeContentState extends State<HomeContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.white,
         elevation: 0,
         leadingWidth: 120,
-        leading: Row(
-          children: const [
-            SizedBox(width: 8),
-            Icon(Icons.person, color: Colors.white),
-            SizedBox(width: 8),
-            Text(
-              "Name",
-              style: TextStyle(fontSize: 16, color: Colors.white),
-            ),
-          ],
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 12),
+          child: Row(
+            children:  [
+              CircleAvatar(
+                radius: 16,
+                backgroundColor: Colors.grey.shade300,
+                child: Icon(Icons.person, color: Color(0xFF0D6EFD)),
+              ),
+              SizedBox(width: 8),
+              Text(
+                "Name",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white),
+            icon: const Icon(Icons.notifications, color: Colors.black),
             onPressed: () {},
           ),
         ],
@@ -36,28 +47,27 @@ class _HomeContentState extends State<HomeContent> {
 
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Headings
+              // Heading Section
               const Text(
                 "Explore the",
                 style: TextStyle(
-                  fontSize: 36,
+                  fontSize: 30,
                   fontWeight: FontWeight.w400,
                   color: Colors.black,
                 ),
               ),
-              const SizedBox(height: 8),
-
+              const SizedBox(height: 4),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const Text(
                     "Beautiful",
                     style: TextStyle(
-                      fontSize: 36,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -66,19 +76,19 @@ class _HomeContentState extends State<HomeContent> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        " World",
+                     Text(
+                        "World",
                         style: TextStyle(
-                          fontSize: 36,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFFFF7029),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 2),
+                        padding: EdgeInsets.only(top: 2),
                         child: Image.asset(
                           "assets/images/Vector2.png",
-                          width: 80,
+                          width: 85,
                           color: const Color(0xFFFF7029),
                           colorBlendMode: BlendMode.srcIn,
                         ),
@@ -87,13 +97,12 @@ class _HomeContentState extends State<HomeContent> {
                   ),
                 ],
               ),
-
-               SizedBox(height: 40),
+             SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
-                    "Best destinations",
+                    "Best Destinations",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -110,7 +119,6 @@ class _HomeContentState extends State<HomeContent> {
                   ),
                 ],
               ),
-
              SizedBox(height: 20),
               InkWell(
                 onTap: () {
@@ -125,7 +133,7 @@ class _HomeContentState extends State<HomeContent> {
                         color: Colors.black.withOpacity(0.08),
                         spreadRadius: 1,
                         blurRadius: 8,
-                        offset: const Offset(0, 4),
+                        offset: Offset(0, 4),
                       ),
                     ],
                   ),
@@ -133,20 +141,18 @@ class _HomeContentState extends State<HomeContent> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
+                        borderRadius: BorderRadius.vertical(
                           top: Radius.circular(16),
                         ),
                         child: Image.asset(
                           "assets/images/Group.png",
-                          height: 180,
+                          height: 200,
                           width: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
-                
-                      // Content
                       Padding(
-                        padding: const EdgeInsets.all(14.0),
+                        padding: EdgeInsets.all(14.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -158,6 +164,7 @@ class _HomeContentState extends State<HomeContent> {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 Row(
@@ -177,7 +184,7 @@ class _HomeContentState extends State<HomeContent> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
+                           SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -187,7 +194,7 @@ class _HomeContentState extends State<HomeContent> {
                                         color: Colors.grey, size: 16),
                                     SizedBox(width: 4),
                                     Text(
-                                      "Tekergat, Sunamgnj",
+                                      "Tekergat, Sunamganj",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
@@ -197,8 +204,8 @@ class _HomeContentState extends State<HomeContent> {
                                 ),
                                 Image.asset(
                                   "assets/images/Group1.png",
-                                  height: 40,
-                                  width: 40,
+                                  height: 36,
+                                  width: 36,
                                 ),
                               ],
                             ),
@@ -209,6 +216,8 @@ class _HomeContentState extends State<HomeContent> {
                   ),
                 ),
               ),
+
+             SizedBox(height: 30),
             ],
           ),
         ),

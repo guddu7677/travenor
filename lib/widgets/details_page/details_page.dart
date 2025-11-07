@@ -24,9 +24,9 @@ class _DetailsPageState extends State<DetailsPage> {
               top: 16,
               left: 16,
               child: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.8),
+                backgroundColor: Colors.white.withOpacity(0.3),
                 child: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.black),
+                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
                   onPressed: () => Navigator.pop(context),
                 ),
               ),

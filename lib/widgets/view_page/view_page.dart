@@ -24,9 +24,12 @@ class _ViewPageState extends State<ViewPage> {
             left: 16,
             child: CircleAvatar(
               backgroundColor: Colors.white.withOpacity(0.8),
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () => Navigator.pop(context),
+              child: CircleAvatar(
+                backgroundColor: Colors.white.withOpacity(0.3),
+                child: IconButton(
+                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             ),
           ),

@@ -25,10 +25,13 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
+        leading: CircleAvatar(
+                backgroundColor: Colors.white.withOpacity(0.3),
+                child: IconButton(
+                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
         elevation: 0,
       ),
       body: SingleChildScrollView(
