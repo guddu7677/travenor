@@ -28,29 +28,27 @@ class _UnifiedOnboardingScreenState extends State<UnifiedOnboardingScreen> {
                          MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView(
-                controller: _pageController,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentPage = index;
-                  });
-                },
-                children: [
-                  _buildFirstPage(screenHeight),
-                  _buildSecondPage(screenHeight),
-                  _buildThirdPage(screenHeight),
-                ],
-              ),
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPage = index;
+                });
+              },
+              children: [
+                _buildFirstPage(screenHeight),
+                _buildSecondPage(screenHeight),
+                _buildThirdPage(screenHeight),
+              ],
             ),
-            _buildDotIndicator(),
-            const SizedBox(height: 10),
-            _buildActionButton(),
-          ],
-        ),
+          ),
+          _buildDotIndicator(),
+          const SizedBox(height: 10),
+          _buildActionButton(),
+        ],
       ),
     );
   }

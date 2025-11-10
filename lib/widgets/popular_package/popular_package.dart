@@ -8,6 +8,7 @@ class PopularPackage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
@@ -19,40 +20,42 @@ class PopularPackage extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        leading:CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "All Popular Trip Packages",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 16),
-              ...List.generate(
-                _packages.length,
-                (index) => Padding(
-                  padding: EdgeInsets.only(
-                    bottom: index < _packages.length - 1 ? 16 : 0,
+        leading:Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
                   ),
-                  child: PackageCard(package: _packages[index]),
                 ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "All Popular Trip Packages",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 16),
+            ...List.generate(
+              _packages.length,
+              (index) => Padding(
+                padding: EdgeInsets.only(
+                  bottom: index < _packages.length - 1 ? 16 : 0,
+                ),
+                child: PackageCard(package: _packages[index]),
+              ),
+            ),
+          ],
         ),
       ),
     );

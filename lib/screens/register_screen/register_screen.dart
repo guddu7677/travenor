@@ -25,13 +25,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading:CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
+        leading:Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
-              ),
+        ),
         elevation: 0,
       ),
       body: SingleChildScrollView(

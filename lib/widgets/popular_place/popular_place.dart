@@ -13,6 +13,7 @@ class _PopularPlaceState extends State<PopularPlace> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
@@ -24,74 +25,76 @@ class _PopularPlaceState extends State<PopularPlace> {
             color: Colors.black,
           ),
         ),
-        leading: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
+        leading:Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
-              ),
+        ),
       ),
 
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                "All Popular Places",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              "All Popular Places",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
             ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildPlaceCard(
-                  image: "assets/images/pics8.jpg",
-                  title: "Niladri Reservoir",
-                  location: "Tekergat, Sunamganj",
-                  rating: "4.7",
-                  price: "\$499",
-                ),
-                 SizedBox(width: 12),
-                _buildPlaceCard(
-                  image: "assets/images/pics9.jpg",
-                  title: "Casa Las Tirtugas",
-                  location: "Av Damero, Mexico",
-                  rating: "4.8",
-                  price: "\$894",
-                ),
-              ],
-            ),
-           SizedBox(height: 12),
-                       Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildPlaceCard(
-                  image: "assets/images/pics10.jpg",
-                  title: "Aonang Villa Resort",
-                  location: "Bastola, Islampur",
-                  rating: "4.3",
-                  price: "\$761",
-                ),
-                const SizedBox(width: 12),
-                _buildPlaceCard(
-                  image: "assets/images/pics11.jpg",
-                  title: "Rangauti Resort",
-                  location: "Sylhet, Airport Road",
-                  rating: "4.7",
-                  price: "\$499",
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+      
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildPlaceCard(
+                image: "assets/images/pics8.jpg",
+                title: "Niladri Reservoir",
+                location: "Tekergat, Sunamganj",
+                rating: "4.7",
+                price: "\$499",
+              ),
+               SizedBox(width: 12),
+              _buildPlaceCard(
+                image: "assets/images/pics9.jpg",
+                title: "Casa Las Tirtugas",
+                location: "Av Damero, Mexico",
+                rating: "4.8",
+                price: "\$894",
+              ),
+            ],
+          ),
+         SizedBox(height: 12),
+                     Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildPlaceCard(
+                image: "assets/images/pics10.jpg",
+                title: "Aonang Villa Resort",
+                location: "Bastola, Islampur",
+                rating: "4.3",
+                price: "\$761",
+              ),
+              const SizedBox(width: 12),
+              _buildPlaceCard(
+                image: "assets/images/pics11.jpg",
+                title: "Rangauti Resort",
+                location: "Sylhet, Airport Road",
+                rating: "4.7",
+                price: "\$499",
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

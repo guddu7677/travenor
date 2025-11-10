@@ -13,26 +13,29 @@ class _ViewPageState extends State<ViewPage> {
     return Scaffold(
       body: Stack(
         children: [
+          // Background Image
           Positioned.fill(
             child: Image.asset(
               'assets/images/pics8.jpg',
               fit: BoxFit.cover,
             ),
           ),
+
+          // Back Button
           Positioned(
             top: 50,
             left: 16,
             child: CircleAvatar(
-              backgroundColor: Colors.white.withOpacity(0.8),
-              child: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
-                ),
+              radius: 20,
+              backgroundColor: const Color(0XFFF7F7F9),
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back_ios, color: Colors.black, size: 16),
+                onPressed: () => Navigator.pop(context),
               ),
             ),
           ),
+
+          // Title
           const Positioned(
             top: 58,
             left: 0,
@@ -41,7 +44,7 @@ class _ViewPageState extends State<ViewPage> {
               child: Text(
                 'View',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 22,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   shadows: [
@@ -55,16 +58,22 @@ class _ViewPageState extends State<ViewPage> {
               ),
             ),
           ),
+
+          // Top Hotel Card
           Positioned(
             top: 120,
             right: 16,
             child: _buildHotelCard("La-Hotel", "assets/images/pics5.jpg", "2.09 mi"),
           ),
+
+          // Bottom Hotel Card
           Positioned(
             bottom: 280,
             left: 16,
             child: _buildHotelCard("Lemon Garden", "assets/images/pics5.jpg", "1.5 mi"),
           ),
+
+          // Bottom Info Panel
           Positioned(
             bottom: 20,
             left: 20,
@@ -73,14 +82,13 @@ class _ViewPageState extends State<ViewPage> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.6),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(24),
-                ),
+                borderRadius: BorderRadius.circular(24),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // Title and Rating
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -94,11 +102,7 @@ class _ViewPageState extends State<ViewPage> {
                       ),
                       Row(
                         children: const [
-                          Icon(
-                            Icons.star,
-                            color: Colors.yellow,
-                            size: 20,
-                          ),
+                          Icon(Icons.star, color: Colors.yellow, size: 20),
                           SizedBox(width: 4),
                           Text(
                             "4.7",
@@ -112,53 +116,44 @@ class _ViewPageState extends State<ViewPage> {
                       ),
                     ],
                   ),
+
                   const SizedBox(height: 12),
+
+                  // Location and Icon
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: const [
-                          Icon(
-                            Icons.location_on,
-                            color: Colors.grey,
-                            size: 18,
-                          ),
+                          Icon(Icons.location_on, color: Colors.grey, size: 18),
                           SizedBox(width: 4),
                           Text(
                             "Tekergat, Sunamgnj",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
-                            ),
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
                           ),
                         ],
                       ),
-                      Image.asset(
-                        "assets/images/Group1.png",
-                        height: 50,
-                        width: 50,
-                      ),
+                      Image.asset("assets/images/Group1.png", height: 50, width: 50),
                     ],
                   ),
+
                   const SizedBox(height: 8),
+
+                  // Duration
                   Row(
                     children: const [
-                      Icon(
-                        Icons.timer,
-                        color: Colors.grey,
-                        size: 18,
-                      ),
+                      Icon(Icons.timer, color: Colors.grey, size: 18),
                       SizedBox(width: 4),
                       Text(
                         "45 Minutes",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),
+
                   const SizedBox(height: 20),
+
+                  // Button
                   SizedBox(
                     height: 50,
                     width: double.infinity,
@@ -189,6 +184,7 @@ class _ViewPageState extends State<ViewPage> {
     );
   }
 
+  // Reusable Hotel Card Widget
   Widget _buildHotelCard(String name, String imagePath, String distance) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -227,7 +223,6 @@ class _ViewPageState extends State<ViewPage> {
                 style: const TextStyle(
                   fontSize: 12,
                   color: Colors.white70,
-                  fontWeight: FontWeight.w400,
                 ),
               ),
             ],

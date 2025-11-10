@@ -47,6 +47,7 @@ class _FavoritePersonState extends State<FavoritePerson> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        scrolledUnderElevation: 0,
         elevation: 0,
         centerTitle: true,
         title: const Text(
@@ -57,52 +58,54 @@ class _FavoritePersonState extends State<FavoritePerson> {
             color: Colors.black,
           ),
         ),
-        leading: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-      ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-             Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'All Popular Places',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: 0.8,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
                   ),
-                  itemCount: places.length,
-                  itemBuilder: (context, index) {
-                    return _buildPlaceCard(
-                      image: places[index]['image']!,
-                      title: places[index]['title']!,
-                      location: places[index]['location']!,
-                    );
-                  },
                 ),
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+           Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'All Popular Places',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  childAspectRatio: 0.8,
+                ),
+                itemCount: places.length,
+                itemBuilder: (context, index) {
+                  return _buildPlaceCard(
+                    image: places[index]['image']!,
+                    title: places[index]['title']!,
+                    location: places[index]['location']!,
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

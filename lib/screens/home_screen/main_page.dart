@@ -13,10 +13,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-int _selectedIndex = 0;
+  int _selectedIndex = 0;
 
   final List<Widget> _pages = const [
-   HomeScreen(),
+    HomeScreen(),
     CalenderScreen(),
     SearchScreen(),
     MessangingScreen(),
@@ -29,24 +29,50 @@ int _selectedIndex = 0;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.teal,
-        unselectedItemColor: Colors.grey,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: "Calendar"),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label: "Search" ),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Message"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: const Color(0xFF0D6EFD),
+          unselectedItemColor: Colors.grey,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          elevation: 0,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month),
+              label: "Calendar",
+            ),
+            BottomNavigationBarItem(
+              icon: CircleAvatar(
+                radius: 30,
+                backgroundColor: Color(0xFF0D6EFD),
+                child: Icon(Icons.search, color: Colors.white),
+              ),
+              label: "",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: "Message",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Profile",
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -12,11 +12,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
       appBar: AppBar(
         backgroundColor: Colors.white,
+        scrolledUnderElevation: 0,
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Profile",
           style: TextStyle(
             fontSize: 18,
@@ -24,13 +26,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
             color: Colors.black,
           ),
         ),
-        leading: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
-                ),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            radius: 20,
+            backgroundColor: Color(0XFFF7F7F9),
+            child: IconButton(
+              icon: const Center(
+                child: Icon(Icons.arrow_back_ios, color: Colors.black, size: 16),
               ),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),
@@ -53,14 +61,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      body: SafeArea(
+
+      // --- BODY ---
+      body: Container(
+        color: Colors.white, // Ensures full background stays white
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
               const SizedBox(height: 24),
 
-              // Profile Avatar with subtle shadow
+              // --- Profile Avatar ---
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -85,7 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 16),
 
-              // Name
+              // --- Name ---
               const Text(
                 "Leonardo",
                 style: TextStyle(
@@ -97,7 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 6),
 
-              // Email
+              // --- Email ---
               const Text(
                 "Leonardo@gmail.com",
                 style: TextStyle(
@@ -109,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 28),
 
-              // Stats Card with refined shadow
+              // --- Stats Section ---
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 decoration: BoxDecoration(
@@ -134,14 +146,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-             SizedBox(height: 30),
+
+              const SizedBox(height: 30),
+
+              // --- Option Tiles ---
               _buildOptionTile(Icons.person_outline, "Profile"),
               _buildOptionTile(Icons.bookmark_border, "Bookmarked"),
               _buildOptionTile(Icons.flight_takeoff, "Previous Trips"),
               _buildOptionTile(Icons.settings_outlined, "Settings"),
               _buildOptionTile(Icons.info_outline, "Version"),
 
-             SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -149,6 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  // --- Helper Widgets ---
   Widget _buildOptionTile(IconData icon, String title) {
     return Column(
       children: [
@@ -159,14 +175,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
               BoxShadow(
                 color: Colors.black.withOpacity(0.04),
                 blurRadius: 4,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
               ),
             ],
           ),
           child: ListTile(
-            contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             leading: Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(10),
@@ -175,7 +192,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             title: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
                 color: Colors.black87,
@@ -186,8 +203,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               size: 16,
               color: Colors.grey.shade400,
             ),
-            onTap: () {
-            },
+            onTap: () {},
           ),
         ),
         Divider(

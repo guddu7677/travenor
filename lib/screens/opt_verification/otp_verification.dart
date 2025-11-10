@@ -16,13 +16,17 @@ class _OtpVerificationState extends State<OtpVerification> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading:CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
+        leading:Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
-              ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
@@ -31,7 +35,7 @@ class _OtpVerificationState extends State<OtpVerification> {
           children: [
            SizedBox(height: 20),
            Text(
-              "Forget Password",
+              "OTP Verification",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 28,
@@ -40,7 +44,7 @@ class _OtpVerificationState extends State<OtpVerification> {
             ),
            SizedBox(height: 12),
            Text(
-              "Please enter your email to receive a link to create a new password via email.",
+              "Please check your email www.uihut@gmail.com to see the verification code",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),

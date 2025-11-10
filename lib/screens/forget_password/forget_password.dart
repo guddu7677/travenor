@@ -60,14 +60,16 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: CircleAvatar(
-          radius: 16,
-                          backgroundColor: Colors.grey.shade300,
-
-          child: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () => Navigator.pop(context),
-          ),
+        leading:Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ),
         ),
       ),
       body: SingleChildScrollView(

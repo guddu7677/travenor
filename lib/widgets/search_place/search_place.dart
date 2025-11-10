@@ -13,6 +13,7 @@ class _SearchPlaceState extends State<SearchPlace> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
@@ -24,13 +25,17 @@ class _SearchPlaceState extends State<SearchPlace> {
             color: Colors.black,
           ),
         ),
-        leading:CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.3),
-                child: IconButton(
-                  icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
-                  onPressed: () => Navigator.pop(context),
+        leading:Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+                radius: 20,
+                  backgroundColor: Color(0XFFF7F7F9),
+                  child: IconButton(
+                    icon: Center(child:  Icon(Icons.arrow_back_ios, color: Colors.black,size: 16,)),
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
-              ),
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16),
@@ -44,104 +49,100 @@ class _SearchPlaceState extends State<SearchPlace> {
         ],
       ),
 
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // 🔍 Search Field with Voice Icon
-              Container(
-                height: 48,
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.search, color: Color(0xFF7D848D)),
-                    const SizedBox(width: 8),
-                    const Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Search places...",
-                          hintStyle: TextStyle(color: Color(0xFF7D848D)),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 32,
-                      width: 32,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF0D6EFD),
-                      ),
-                      child: const Icon(Icons.mic, color: Colors.white, size: 18),
-                    ),
-                  ],
-                ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 48,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              decoration: BoxDecoration(
+                color: const Color(0xFFF5F5F5),
+                borderRadius: BorderRadius.circular(12),
               ),
-
-              const SizedBox(height: 20),
-
-              const Text(
-                "Search Places",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // 🧳 First Row of Cards
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Row(
                 children: [
-                  _buildPlaceCard(
-                    image: "assets/images/pics8.jpg",
-                    title: "Niladri Reservoir",
-                    location: "Tekergat, Sunamganj",
-                    rating: "4.7",
-                    price: "\$499",
+                  const Icon(Icons.search, color: Color(0xFF7D848D)),
+                  const SizedBox(width: 8),
+                  const Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search places...",
+                        hintStyle: TextStyle(color: Color(0xFF7D848D)),
+                      ),
+                    ),
                   ),
-                  _buildPlaceCard(
-                    image: "assets/images/pics9.jpg",
-                    title: "Casa Las Tirtugas",
-                    location: "Av Damero, Mexico",
-                    rating: "4.8",
-                    price: "\$894",
+                  Container(
+                    height: 32,
+                    width: 32,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.mic, color: Colors.grey, size: 24),
                   ),
                 ],
               ),
-
-              const SizedBox(height: 16),
-
-              // 🌴 Second Row of Cards
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildPlaceCard(
-                    image: "assets/images/pics10.jpg",
-                    title: "Aonang Villa Resort",
-                    location: "Bastola, Islampur",
-                    rating: "4.3",
-                    price: "\$761",
-                  ),
-                  _buildPlaceCard(
-                    image: "assets/images/pics11.jpg",
-                    title: "Rangauti Resort",
-                    location: "Sylhet, Airport Road",
-                    rating: "4.7",
-                    price: "\$499",
-                  ),
-                ],
+            ),
+      
+            const SizedBox(height: 20),
+      
+            const Text(
+              "Search Places",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-            ],
-          ),
+            ),
+      
+            const SizedBox(height: 16),
+      
+            // 🧳 First Row of Cards
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildPlaceCard(
+                  image: "assets/images/pics8.jpg",
+                  title: "Niladri Reservoir",
+                  location: "Tekergat, Sunamganj",
+                  rating: "4.7",
+                  price: "\$499",
+                ),
+                _buildPlaceCard(
+                  image: "assets/images/pics9.jpg",
+                  title: "Casa Las Tirtugas",
+                  location: "Av Damero, Mexico",
+                  rating: "4.8",
+                  price: "\$894",
+                ),
+              ],
+            ),
+      
+            const SizedBox(height: 16),
+      
+            // 🌴 Second Row of Cards
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildPlaceCard(
+                  image: "assets/images/pics10.jpg",
+                  title: "Aonang Villa Resort",
+                  location: "Bastola, Islampur",
+                  rating: "4.3",
+                  price: "\$761",
+                ),
+                _buildPlaceCard(
+                  image: "assets/images/pics11.jpg",
+                  title: "Rangauti Resort",
+                  location: "Sylhet, Airport Road",
+                  rating: "4.7",
+                  price: "\$499",
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
